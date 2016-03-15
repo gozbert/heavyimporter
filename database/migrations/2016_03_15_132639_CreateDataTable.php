@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFlagTable extends Migration
+class CreateDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,10 @@ class CreateFlagTable extends Migration
      */
     public function up()
     {
-        Schema::create('flag_table', function (Blueprint $table) {
-            $table->string('file_name');
-            $table->boolean('imported');
-            $table->integer('rows_imported');
-            $table->integer('total_rows');
+        Schema::create('data', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('A', 20);
+            $table->string('B', 20);
         });
     }
 
@@ -27,6 +26,6 @@ class CreateFlagTable extends Migration
      */
     public function down()
     {
-        Schema::drop('flag_table');
+        Schema::drop('data');
     }
 }
