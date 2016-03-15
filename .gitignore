@@ -1,0 +1,12 @@
+/vendor
+/node_modules
+/public/storage
+Homestead.yaml
+Homestead.json
+.env
+.env.example
+*.sublime-project
+*.sublime-workspace
+composer.lock
+gulpfile.js
+package.json
