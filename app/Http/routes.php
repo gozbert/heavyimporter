@@ -10,11 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -27,5 +22,12 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
+
+    Route::get('/', ['as'=>'home', function () {
+        return view('welcome');
+    }]);
+    Route::get('/status', ['as'=>'status', 'uses'=>'Controller@status']);
+    Route::post('/import', ['as'=>'import', 'uses'=>'Controller@import']);
+
     //
 });
