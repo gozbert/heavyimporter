@@ -13,10 +13,12 @@ class CreateFlagTable extends Migration
     public function up()
     {
         Schema::create('flag_table', function (Blueprint $table) {
-            $table->string('file_name');
+            $table->increments('id');
+            $table->string('file_name')->unique();
             $table->boolean('imported');
             $table->integer('rows_imported');
             $table->integer('total_rows');
+            $table->timestamps();
         });
     }
 
