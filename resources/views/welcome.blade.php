@@ -52,7 +52,7 @@
         <script>
             (function($){
                 'use strict';
-                function imCallingMyself() {
+                function statusUpdater() {
                     var status = $('#status');
                     $.ajax({
                         'url': '/status',
@@ -65,15 +65,15 @@
                             status.text( "Status is: " + r.msg );
                             console.log("Status is: " + r.msg);
                             console.log( "The job is not yet done... Hold your horses, it takes a while :)" );
-                            imCallingMyself();
+                            statusUpdater();
                         }
                       })
                       .fail(function() {
-                          status.text( "An error has occured... We could ask Neo about what happened, but he's taken the red pill and he's at home sleeping" );
-                          console.log( "An error has occured... We could ask Neo about what happened, but he's taken the red pill and he's at home sleeping" );
+                          status.text( "An error has occurred... We could ask Neo about what happened, but he's taken the red pill and he's at home sleeping" );
+                          console.log( "An error has occurred... We could ask Neo about what happened, but he's taken the red pill and he's at home sleeping" );
                       });
                 }
-                imCallingMyself();
+                statusUpdater();
             })(jQuery);
         </script>
     </body>
