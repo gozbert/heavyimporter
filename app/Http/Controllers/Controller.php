@@ -66,7 +66,7 @@ class Controller extends BaseController
         $flag_table = DB::table('flag_table')
                         ->orderBy('created_at', 'desc')
                         ->first();
-        if(empty($flag)) {
+        if(empty($flag_table)) {
             return response()->json(['msg' => 'done']); //nothing to do
         }
         if($flag_table->imported === 1) {
